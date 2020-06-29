@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sign_up_top_bar"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/white"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/sign_up_top_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="#000000"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="20sp"
+            android:text="회원가입"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/sign_up_close"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/sign_up_top_tv"
+            app:layout_constraintBottom_toBottomOf="@id/sign_up_top_tv"
+            android:layout_marginEnd="20dp">
+            <ImageView
+                android:id="@+id/sign_up_close_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/signup_close"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/sign_up_choose_univ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_top_bar"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="학교선택"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/sign_up_entrance_year_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/sign_up_entrance_year"
+        app:layout_constraintBottom_toTopOf="@id/sign_up_entrance_year"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="입학년도"
+        android:textColor="#2c2c2c"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sign_up_entrance_year"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="@id/sign_up_choose_univ"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_choose_univ">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:riv_corner_radius="10dp"
+            app:riv_border_color="@color/border_gray"
+            app:riv_border_width="1dp"
+            android:src="@drawable/id_pw_rectangle"
+            android:scaleType="fitXY" />
+        <TextView
+            android:id="@+id/sign_up_entrance_year_in_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="10dp"
+            android:textColor="#000000"
+            android:text="연도 선택 (학번)" />
+        <ImageView
+            android:id="@+id/sign_up_entrance_year_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:layout_constraintTop_toTopOf="@+id/sign_up_entrance_year_in_tv"
+            app:layout_constraintBottom_toBottomOf="@id/sign_up_entrance_year_in_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/signup_entrance_arrow"
+            android:layout_marginEnd="10dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/sign_up_search_univ_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/sign_up_search_univ"
+        app:layout_constraintBottom_toTopOf="@id/sign_up_search_univ"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="3dp"
+        android:text="학교"
+        android:textColor="#2c2c2c"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sign_up_search_univ"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="@id/sign_up_choose_univ"
+        android:layout_marginTop="45dp"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_entrance_year">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:riv_corner_radius="10dp"
+            app:riv_border_color="@color/border_gray"
+            app:riv_border_width="1dp"
+            android:src="@drawable/id_pw_rectangle"
+            android:scaleType="fitXY" />
+        <TextView
+            android:id="@+id/sign_up_search_univ_in_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/idpw_gray"
+            android:text="학교 이름을 검색하세요." />
+        <ImageView
+            android:id="@+id/sign_up_search_univ_search_img"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:layout_constraintTop_toTopOf="@+id/sign_up_search_univ_in_tv"
+            app:layout_constraintBottom_toBottomOf="@id/sign_up_search_univ_in_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/signup_school_search"
+            android:layout_marginEnd="10dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sign_up_next"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="@id/sign_up_choose_univ"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_search_univ">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:riv_corner_radius="10dp"
+
+            android:src="@drawable/login_rectangel"
+            android:scaleType="fitXY" />
+        <TextView
+            android:id="@+id/sign_up_next_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="다음" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

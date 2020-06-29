@@ -58,26 +58,27 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                 {
                     case R.id.bottom_navi_home:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, homeFragment).commitAllowingStateLoss();
-                        return true;
+                        break;
                     }
                     case R.id.bottom_navi_community:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, communityFragment).commitAllowingStateLoss();
-                        return true;
+                        break;
                     }
                     case R.id.bottom_navi_timetable:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, timetableFragment).commitAllowingStateLoss();
-                        return true;
+                        break;
                     }
                     case R.id.bottom_navi_alarm:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, alarmFragment).commitAllowingStateLoss();
-                        return true;
+                        break;
                     }
                     case R.id.bottom_navi_campuspick:{
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_frameLayout, campuspickFragment).commitAllowingStateLoss();
-                        return true;
+                        break;
                     }
-                    default:return false;
+
                 }
+                return true;
             }
         });
     }
