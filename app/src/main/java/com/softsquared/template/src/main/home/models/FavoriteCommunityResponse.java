@@ -1,22 +1,39 @@
 package com.softsquared.template.src.main.home.models;
 
+import com.google.gson.annotations.SerializedName;
+import com.softsquared.template.src.login.models.LoginInfo;
+import com.softsquared.template.src.login.models.LoginJwt;
+
+import java.util.ArrayList;
+
 public class FavoriteCommunityResponse {
-    public String getCommuName() {
-        return commuName;
+    public ArrayList<FavoriteCommunityInfo> getResult() {
+        return result;
     }
 
-    public void setCommuName(String commuName) {
-        this.commuName = commuName;
+    public int getCode() {
+        return code;
     }
 
-    public String getCommuArticle() {
-        return commuArticle;
+    public String getMessage() {
+        return message;
     }
 
-    public void setCommuArticle(String commuArticle) {
-        this.commuArticle = commuArticle;
+    public boolean getIsSuccess() {
+        return isSuccess;
     }
 
-    private String commuName;
-    private String commuArticle;
+    @SerializedName("result")
+    private ArrayList<FavoriteCommunityInfo> result;
+
+    @SerializedName("code")
+    private int code;
+
+    @SerializedName("message")
+    private String message;
+
+    @SerializedName("isSuccess")
+    private boolean isSuccess;
+
+
 }

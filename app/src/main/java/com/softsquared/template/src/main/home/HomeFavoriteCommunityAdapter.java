@@ -4,9 +4,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.softsquared.template.R;
+import com.softsquared.template.src.main.home.models.FavoriteCommunityInfo;
 import com.softsquared.template.src.main.home.models.FavoriteCommunityResponse;
 
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class HomeFavoriteCommunityAdapter extends RecyclerView.Adapter<HomeFavoriteCommunityAdapter.CommuViewHolder> {
 
-    private ArrayList<FavoriteCommunityResponse> communityResponseArrayList = new ArrayList<>();
+    private ArrayList<FavoriteCommunityInfo> communityResponseArrayList = new ArrayList<>();
 
     @NonNull
     @Override
@@ -34,7 +36,7 @@ public class HomeFavoriteCommunityAdapter extends RecyclerView.Adapter<HomeFavor
     @Override
     public int getItemCount() { return communityResponseArrayList.size(); }
 
-    public void add(FavoriteCommunityResponse favoriteCommunityResponse) {communityResponseArrayList.add(favoriteCommunityResponse);}
+    public void add(FavoriteCommunityInfo favoriteCommunityInfo) {communityResponseArrayList.add(favoriteCommunityInfo);}
 
     public void clear() {communityResponseArrayList.clear();}
 
@@ -42,17 +44,32 @@ public class HomeFavoriteCommunityAdapter extends RecyclerView.Adapter<HomeFavor
     public class CommuViewHolder extends RecyclerView.ViewHolder{
         private TextView commuName;
         private TextView commuArticle;
+        private ImageView commuRecent;
 
         public CommuViewHolder(@NonNull View itemView) {
             super(itemView);
             commuName = itemView.findViewById(R.id.favorite_community_name);
             commuArticle = itemView.findViewById(R.id.favorite_community_article);
+            commuRecent = itemView.findViewById(R.id.favorite_community_new);
         }
 
-        void setting(FavoriteCommunityResponse favoriteCommunityResponse)
+        void setting(FavoriteCommunityInfo favoriteCommunityInfo)
         {
-            commuName.setText(favoriteCommunityResponse.getCommuName());
-            commuArticle.setText(favoriteCommunityResponse.getCommuArticle());
+            commuName.setText(favoriteCommunityInfo.getFav_commu_name());
+            commuArticle.setText(favoriteCommunityInfo.getFav_commu_article());
+            switch (favoriteCommunityInfo.getFav_commu_recent())
+            {
+                case "new":
+                {
+                    commuRecent.setVisibility(View.VISIBLE);
+                    break;
+                }
+                case "x":
+                {
+                    commuRecent.setVisibility(View.INVISIBLE);
+                    break;
+                }
+            }
         }
     }
 }

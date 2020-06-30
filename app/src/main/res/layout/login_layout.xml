@@ -51,14 +51,16 @@
             app:riv_corner_radius="30dp"
             android:src="@drawable/id_pw_rectangle"
             android:scaleType="fitXY" />
-        <TextView
-            android:id="@+id/id_tv"
+        <EditText
+            android:id="@+id/id_editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:background="@null"
             android:layout_marginStart="10dp"
+            android:textSize="14sp"
             android:textColor="@color/idpw_gray"
             android:text="아이디" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -78,14 +80,16 @@
             app:riv_corner_radius="30dp"
             android:src="@drawable/id_pw_rectangle"
             android:scaleType="fitXY" />
-        <TextView
-            android:id="@+id/pw_tv"
+        <EditText
+            android:id="@+id/pw_editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="10dp"
+            android:textSize="14sp"
+            android:background="@null"
             android:textColor="@color/idpw_gray"
             android:text="비밀번호" />
     </androidx.constraintlayout.widget.ConstraintLayout>
