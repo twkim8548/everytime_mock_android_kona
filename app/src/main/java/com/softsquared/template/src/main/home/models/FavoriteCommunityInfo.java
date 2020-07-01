@@ -5,24 +5,24 @@ import com.google.gson.annotations.SerializedName;
 public class FavoriteCommunityInfo {
 
 
-    public String getFav_commu_name() {
-        return fav_commu_name;
+    public String getNoticeName() {
+        return noticeName;
     }
 
-    public String getFav_commu_article() {
-        return fav_commu_article;
+    public String getContentTitle() {
+        return contentTitle;
     }
 
-    public String getFav_commu_recent() {
-        return fav_commu_recent;
+    public String getCheckNew() {
+        return checkNew;
     }
 
-    @SerializedName("게시판 이름")
-    private String fav_commu_name;
+    @SerializedName("noticeName")
+    private String noticeName;
 
-    @SerializedName("글제목")
-    private String fav_commu_article;
+    @SerializedName("contentTitle")
+    private String contentTitle;
 
-    @SerializedName("최신여부")
-    private String fav_commu_recent;
+    @SerializedName("checkNew")
+    private String checkNew;
 }

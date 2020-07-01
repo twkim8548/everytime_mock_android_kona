@@ -2,33 +2,15 @@ package com.softsquared.template.src.login.signup.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SignupInfo {
-    public String getUserID() {
-        return userID;
-    }
-
-    public String getPw() {
-        return pw;
-    }
-
-    public String getUserNickname() {
-        return userNickname;
-    }
-
-    public String getPhoneNum() {
-        return phoneNum;
-    }
-
-    public String getUnivName() {
-        return univName;
-    }
-
-    public String getUnivYear() {
-        return univYear;
-    }
-
-    public String getEmail() {
-        return email;
+public class SignupBody {
+    public SignupBody(String userID, String pw, String userNickname, String phoneNum, String univName, String univYear, String email) {
+        this.userID = userID;
+        this.pw = pw;
+        this.userNickname = userNickname;
+        this.phoneNum = phoneNum;
+        this.univName = univName;
+        this.univYear = univYear;
+        this.email = email;
     }
 
     @SerializedName("userID")

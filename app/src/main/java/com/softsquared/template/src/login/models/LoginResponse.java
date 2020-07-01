@@ -1,7 +1,6 @@
 package com.softsquared.template.src.login.models;
 
 import com.google.gson.annotations.SerializedName;
-import com.softsquared.template.src.login.signup.models.SignupInfo;
 
 import java.util.ArrayList;
 

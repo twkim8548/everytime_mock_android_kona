@@ -41,6 +41,11 @@ public class LoginService {
                     Log.e(TAG, "" + loginResponse.getMessage());
                     loginActivityView.onFailureLogin();
                 }
+                Log.e("로그인성공", "Login Success!!!!!");
+                Log.e("코드", "" + loginResponse.getCode());
+                Log.e("메시지", "" + loginResponse.getMessage());
+                Log.e("result", "" + loginResponse.getResult().getJwt());
+
                 loginActivityView.onSuccessLogin(loginResponse.getResult());
             }
 

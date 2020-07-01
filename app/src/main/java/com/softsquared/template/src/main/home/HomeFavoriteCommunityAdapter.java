@@ -3,13 +3,11 @@ package com.softsquared.template.src.main.home;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.softsquared.template.R;
 import com.softsquared.template.src.main.home.models.FavoriteCommunityInfo;
-import com.softsquared.template.src.main.home.models.FavoriteCommunityResponse;
 
 import java.util.ArrayList;
 
@@ -55,9 +53,9 @@ public class HomeFavoriteCommunityAdapter extends RecyclerView.Adapter<HomeFavor
 
         void setting(FavoriteCommunityInfo favoriteCommunityInfo)
         {
-            commuName.setText(favoriteCommunityInfo.getFav_commu_name());
-            commuArticle.setText(favoriteCommunityInfo.getFav_commu_article());
-            switch (favoriteCommunityInfo.getFav_commu_recent())
+            commuName.setText(favoriteCommunityInfo.getNoticeName());
+            commuArticle.setText(favoriteCommunityInfo.getContentTitle());
+            switch (favoriteCommunityInfo.getCheckNew())
             {
                 case "new":
                 {

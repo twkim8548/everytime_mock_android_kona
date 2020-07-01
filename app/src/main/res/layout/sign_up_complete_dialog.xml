@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp">
+    <TextView
+        android:id="@+id/sign_up_complete_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="회원가입이 완료되었습니다."
+        android:textColor="#000000"/>
+    <TextView
+        android:id="@+id/sign_up_complete_condition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_complete_tv"
+        app:layout_constraintStart_toStartOf="@id/sign_up_complete_tv"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000"
+        android:text="에브리타임" />
+    <TextView
+        android:id="@+id/sign_up_complete_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_complete_condition"
+        app:layout_constraintStart_toStartOf="@id/sign_up_complete_tv"
+        android:textColor="#000000"
+        android:text="2020년 7월 1일"/>
+    <TextView
+        android:id="@+id/sign_up_complete_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_complete_date"
+        app:layout_constraintStart_toStartOf="@id/sign_up_complete_tv"
+        android:textColor="#000000"
+        android:text="광고성 정보 수신 동의 완료"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sign_up_complete_ok_const"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_complete_alarm"
+        app:layout_constraintEnd_toEndOf="parent"
+>
+        <TextView
+            android:id="@+id/sign_up_complete_ok_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="확인"
+            android:textColor="@color/bottomview_select"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

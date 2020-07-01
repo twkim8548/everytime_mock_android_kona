@@ -1,6 +1,7 @@
 package com.softsquared.template.src.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -72,10 +73,14 @@ public class LoginActivity extends BaseActivity implements LoginActivityView {
 
     @Override
     public void onSuccessLogin(LoginJwt jwt) {
-        sSharedPreferences.edit().putString(X_ACCESS_TOKEN, jwt.getJwt()).apply();
+        SharedPreferences.Editor editor = sSharedPreferences.edit();
+        editor.putString(X_ACCESS_TOKEN, jwt.getJwt());
+        editor.commit();
+        Log.e("과연", "" + jwt.getJwt());
         Log.e("로그인 성공", "LoginActivity::onSuccessLogin() jwt: " + sSharedPreferences.getString(X_ACCESS_TOKEN, ""));
 
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        intent.putExtra("jwt", X_ACCESS_TOKEN);
         startActivity(intent);
         finish();
 
