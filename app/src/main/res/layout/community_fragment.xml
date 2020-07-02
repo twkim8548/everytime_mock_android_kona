@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
-
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/community_tablayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        app:tabTextColor="@color/idpw_gray"
+        app:tabGravity="center"
+        app:tabSelectedTextColor="#000000"
+        app:tabIndicatorColor="#000000"
+        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/community_tab_entire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전체"/>
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/community_tab_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="정보"/>
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/community_tab_ad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="홍보"/>
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/community_tab_organization"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="단체"/>
+    </com.google.android.material.tabs.TabLayout>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/community_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/community_tablayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
