@@ -1,5 +1,6 @@
 package com.softsquared.template.src.main.home;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,8 +34,18 @@ public class HomeFragment extends Fragment implements HomeActivityView {
     private FavoriteCommunityResponse favoriteCommunityResponse;
     private FavoriteCommunityInfo favoriteCommunityInfo;
     private HomeService homeService;
+    private Context context;
+    private MainActivity mainActivity;
 
     private FrameLayout mypageFramelayout;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        this.context = context;
+        mainActivity =(MainActivity)getContext();
+
+    }
 
     @Nullable
     @Override
@@ -44,6 +55,8 @@ public class HomeFragment extends Fragment implements HomeActivityView {
 //        tryGetFavoriteCommunity();
         Log.e("jwt 확인", "LoginActivity::onSuccessLogin() jwt: " + sSharedPreferences.getString(X_ACCESS_TOKEN, ""));
         SetFavoriteCommunity();
+        setView();
+        onClick();
 
         return viewGroup;
 
@@ -59,16 +72,16 @@ public class HomeFragment extends Fragment implements HomeActivityView {
         mypageFramelayout = viewGroup.findViewById(R.id.home_top_mypage_img);
     }
 
-//    private void onClick()
-//    {
-//        mypageFramelayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, MypageActivity.class);
-//
-//            }
-//        });
-//    }
+    private void onClick()
+    {
+        mypageFramelayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MypageActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
 
 

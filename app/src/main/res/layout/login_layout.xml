@@ -60,6 +60,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:background="@null"
             android:layout_marginStart="10dp"
+            android:ems="18"
             android:textSize="14sp"
             android:textColor="@color/idpw_gray"
             android:text="아이디" />
@@ -90,6 +91,7 @@
             android:layout_marginStart="10dp"
             android:textSize="14sp"
             android:background="@null"
+            android:ems="18"
             android:textColor="@color/idpw_gray"
             android:text="비밀번호" />
     </androidx.constraintlayout.widget.ConstraintLayout>

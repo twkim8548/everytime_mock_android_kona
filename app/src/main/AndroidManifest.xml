@@ -28,6 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".src.login.signup.SignupActivity"/>
+        <activity android:name=".src.main.home.mypage.MypageActivity"/>
     </application>
 
 </manifest>

@@ -87,12 +87,19 @@
                     app:layout_constraintBottom_toTopOf="@id/mypage_myprofile_univNum"
                     android:text="이름 / 유저ID"/>
                 <TextView
-                    android:id="@+id/mypage_myprofile_univNum"
+                    android:id="@+id/mypage_myprofile_univName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="@id/mypage_myprofile_nickname"
                     app:layout_constraintTop_toBottomOf="@id/mypage_myprofile_name_id"
-                    android:text="학교 학번"/>
+                    android:text="학교"/>
+                <TextView
+                    android:id="@+id/mypage_myprofile_univNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/mypage_myprofile_univName"
+                    app:layout_constraintTop_toBottomOf="@id/mypage_myprofile_name_id"
+                    android:text="학번"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/mypage_account_const"
