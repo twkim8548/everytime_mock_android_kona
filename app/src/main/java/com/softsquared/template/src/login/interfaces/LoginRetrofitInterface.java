@@ -18,6 +18,5 @@ public interface LoginRetrofitInterface {
     @POST("/login")
     @Headers("Content-Type: application/json")
     Call<LoginResponse> getLogin(
-            @Body LoginBody loginBody)
-            ;
+            @Body LoginBody loginBody);
 }

@@ -1,5 +1,7 @@
 package com.softsquared.template.src.main.notice;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import com.softsquared.template.src.main.home.HomeFragment;
 import com.softsquared.template.src.main.home.HomeRealtimeAdapter;
 import com.softsquared.template.src.main.home.models.RealtimeInfo;
 import com.softsquared.template.src.main.notice.models.NoticeInfo;
+import com.softsquared.template.src.main.noticePost.NoticePostActivity;
 
 import org.w3c.dom.Text;
 import static com.softsquared.template.src.ApplicationClass.DATE_FORMAT;
@@ -18,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeViewholder> {
@@ -62,6 +66,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeView
         private TextView contentGood;
 
 
+
         public NoticeViewholder(@NonNull View itemView) {
             super(itemView);
             contentTitle = itemView.findViewById(R.id.content_article_title_tv);
@@ -72,17 +77,26 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeView
             contentGood = itemView.findViewById(R.id.content_article_good_tv);
         }
 
-        public void setting(NoticeInfo noticeInfo)
+        public void setting(final NoticeInfo noticeInfo)
         {
             contentTitle.setText(noticeInfo.getContentTitle());
             contentArticle.setText(noticeInfo.getContentInf());
             contentWriter.setText(noticeInfo.getContentWriter());
-
-            String dateFormat = DATE_FORMAT.format(noticeInfo.getWriteDay());
-
-            contentDate.setText(dateFormat);
+            contentDate.setText(noticeInfo.getWriteDay());
             contentComment.setText(String.valueOf(noticeInfo.getCountComment()));
             contentGood.setText(String.valueOf(noticeInfo.getCountLike()));
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent  = new Intent(itemView.getContext(), NoticePostActivity.class);
+                    intent.putExtra("contentIdx", noticeInfo.getContentIdx());
+                    Log.e("contentIdx", "" +noticeInfo.getContentIdx());
+                    itemView.getContext().startActivity(intent);
+
+                }
+            });
+
         }
     }
 }

@@ -5,7 +5,7 @@ import com.softsquared.template.src.login.signup.models.SignupJwt;
 
 public interface SignupActivityView {
 
-    void onSuccessSignup(SignupJwt jwt);
+    void onSuccessPostSignup(SignupJwt jwt);
 
-    void onFailureSignup();
+    void onFailurePostSignup();
 }

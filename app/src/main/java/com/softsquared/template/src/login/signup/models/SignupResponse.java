@@ -7,6 +7,10 @@ import java.util.ArrayList;
 
 public class SignupResponse {
 
+    public SignupJwt getResult() {
+        return result;
+    }
+
     @SerializedName("result")
     private SignupJwt result;
 

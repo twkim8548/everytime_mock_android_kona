@@ -30,6 +30,7 @@
         <activity android:name=".src.login.signup.SignupActivity"/>
         <activity android:name=".src.main.home.mypage.MypageActivity"/>
         <activity android:name=".src.main.notice.NoticeActivity"/>
+        <activity android:name=".src.main.noticePost.NoticePostActivity"/>
     </application>
 
 </manifest>

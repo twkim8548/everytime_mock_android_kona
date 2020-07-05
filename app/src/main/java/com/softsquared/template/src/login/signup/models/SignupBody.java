@@ -3,7 +3,7 @@ package com.softsquared.template.src.login.signup.models;
 import com.google.gson.annotations.SerializedName;
 
 public class SignupBody {
-    public SignupBody(String userID, String pw, String userNickname, String phoneNum, String univName, String univYear, String email) {
+    public SignupBody(String userID, String pw, String userNickname, String phoneNum, String univName, int univYear, String email) {
         this.userID = userID;
         this.pw = pw;
         this.userNickname = userNickname;
@@ -29,7 +29,7 @@ public class SignupBody {
     private String univName;
 
     @SerializedName("univYear")
-    private String univYear;
+    private int univYear;
 
     @SerializedName("email")
     private String email;

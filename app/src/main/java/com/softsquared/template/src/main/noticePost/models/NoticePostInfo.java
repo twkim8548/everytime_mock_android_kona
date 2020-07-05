@@ -1,10 +1,8 @@
-package com.softsquared.template.src.main.notice.models;
+package com.softsquared.template.src.main.noticePost.models;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
-
-public class NoticeInfo {
+public class NoticePostInfo {
 
 
     public int getContentIdx() {
@@ -27,10 +25,6 @@ public class NoticeInfo {
         return noticeName;
     }
 
-    public String getContentThumbnailURL() {
-        return contentThumbnailURL;
-    }
-
     public String getWriteDay() {
         return writeDay;
     }
@@ -43,8 +37,8 @@ public class NoticeInfo {
         return countComment;
     }
 
-    public int getCountImage() {
-        return countImage;
+    public int getCountScrab() {
+        return countScrab;
     }
 
     @SerializedName("contentIdx")
@@ -62,9 +56,6 @@ public class NoticeInfo {
     @SerializedName("noticeName")
     private String noticeName;
 
-    @SerializedName("contentThumbnailURL")
-    private String contentThumbnailURL;
-
     @SerializedName("writeDay")
     private String writeDay;
 
@@ -74,6 +65,9 @@ public class NoticeInfo {
     @SerializedName("countComment")
     private int countComment;
 
-    @SerializedName("countImage")
-    private int countImage;
+    @SerializedName("countScrab")
+    private int countScrab;
+
+//    @SerializedName("contentImageURLList")
+//    private arrayList
 }

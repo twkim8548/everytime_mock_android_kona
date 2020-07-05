@@ -10,4 +10,5 @@
     <color name="border_gray">#ECECEC</color>
     <color name="dark_gray">#6c6c6c</color>
     <color name="colorLightGray">#DBDBDB</color>
+    <color name="colorBlack">#000000</color>
 </resources>

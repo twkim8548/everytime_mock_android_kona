@@ -7,6 +7,8 @@ import com.softsquared.template.src.login.models.LoginResponse;
 import com.softsquared.template.src.main.home.mypage.interfaces.MypageActivityView;
 import com.softsquared.template.src.main.home.mypage.interfaces.MypageRetrofitInterface;
 import com.softsquared.template.src.main.home.mypage.models.MypageResponse;
+import com.softsquared.template.src.main.home.mypage.models.NickChangeBody;
+import com.softsquared.template.src.main.home.mypage.models.NickChangeResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -56,6 +58,41 @@ public class MypageService {
             public void onFailure(Call<MypageResponse> call, Throwable t) {
                 Log.e("마이페이지 GET 실패", "Mypage Failure");
                 mypageActivityView.onFailureGetMypage();
+
+            }
+        });
+    }
+
+    void patchUser(String userNickname)
+    {
+        MypageRetrofitInterface mypageRetrofitInterface = getRetrofit().create(MypageRetrofitInterface.class);
+        mypageRetrofitInterface.patchNickChange(new NickChangeBody(userNickname)).enqueue(new Callback<NickChangeResponse>() {
+            @Override
+            public void onResponse(Call<NickChangeResponse> call, Response<NickChangeResponse> response) {
+                NickChangeResponse nickChangeResponse = response.body();
+                if(nickChangeResponse == null)
+                {
+                    Log.e(TAG, "MypageResponse is null");
+                    mypageActivityView.onFailuerPatchUser();
+                }
+                else if(!nickChangeResponse.getIsSuccess())
+                {
+                    Log.e(TAG, "" + nickChangeResponse.getCode());
+                    Log.e(TAG, "" + nickChangeResponse.getMessage());
+                    mypageActivityView.onFailuerPatchUser();
+                }
+                Log.e("마이페이지 GET", "Mypage Get Success!!!!!");
+                Log.e("코드", "" + nickChangeResponse.getCode());
+                Log.e("메시지", "" + nickChangeResponse.getMessage());
+
+                mypageActivityView.onSuccessPatchUser(nickChangeResponse.getResult());
+
+            }
+
+            @Override
+            public void onFailure(Call<NickChangeResponse> call, Throwable t) {
+                Log.e("user nickname patch 실패", "patch Failure");
+                mypageActivityView.onFailuerPatchUser();
 
             }
         });

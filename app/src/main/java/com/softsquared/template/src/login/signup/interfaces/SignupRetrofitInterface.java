@@ -15,6 +15,5 @@ public interface SignupRetrofitInterface {
     @POST("/user")
     @Headers("Content-Type: application/json")
     Call<SignupResponse> getSignup(
-            @Body SignupBody signupBody)
-            ;
+            @Body SignupBody signupBody);
 }
