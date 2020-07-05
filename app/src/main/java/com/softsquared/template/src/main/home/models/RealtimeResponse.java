@@ -1,11 +1,13 @@
-package com.softsquared.template.src.main.home.mypage.models;
+package com.softsquared.template.src.main.home.models;
 
 import com.google.gson.annotations.SerializedName;
-import com.softsquared.template.src.main.home.models.FavoriteCommunityInfo;
 
 import java.util.ArrayList;
 
-public class MypageResponse {
+public class RealtimeResponse {
+    public ArrayList<RealtimeInfo> getResult() {
+        return result;
+    }
 
     public int getCode() {
         return code;
@@ -19,13 +21,8 @@ public class MypageResponse {
         return isSuccess;
     }
 
-
-    public ArrayList<MypageInfo> getResult() {
-        return result;
-    }
-
     @SerializedName("result")
-    private ArrayList<MypageInfo> result;
+    private ArrayList<RealtimeInfo> result;
 
     @SerializedName("code")
     private int code;
@@ -35,6 +32,4 @@ public class MypageResponse {
 
     @SerializedName("isSuccess")
     private boolean isSuccess;
-
-
 }

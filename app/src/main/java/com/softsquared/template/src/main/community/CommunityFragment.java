@@ -27,6 +27,8 @@ public class CommunityFragment extends Fragment {
         return view;
     }
 
+
+
     private void communityView(View view)
     {
         TabLayout tabLayout = view.findViewById(R.id.community_tablayout);

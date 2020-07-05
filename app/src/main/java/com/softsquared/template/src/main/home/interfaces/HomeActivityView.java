@@ -4,6 +4,8 @@ import com.softsquared.template.src.login.models.LoginBody;
 import com.softsquared.template.src.login.models.LoginResponse;
 import com.softsquared.template.src.main.home.models.FavoriteCommunityInfo;
 import com.softsquared.template.src.main.home.models.FavoriteCommunityResponse;
+import com.softsquared.template.src.main.home.models.HotContentResponse;
+import com.softsquared.template.src.main.home.models.RealtimeResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -17,6 +19,14 @@ public interface HomeActivityView {
     void onSuccessGetFavoriteCommunity(FavoriteCommunityResponse favoriteCommunityResponse);
 
     void onFailureGetFavoriteCommunity();
+
+    void onSuccessGetHotContent(HotContentResponse hotContentResponse);
+
+    void onFailureGetHotContent();
+
+    void onSuccessGetPopularContent(RealtimeResponse realtimeResponse);
+
+    void onFailureGetPopularContent();
 
 
 }

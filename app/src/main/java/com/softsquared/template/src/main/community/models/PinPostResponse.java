@@ -4,13 +4,15 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-public class PinResponse {
-    public ArrayList<PinInfo> getResult() {
+public class PinPostResponse {
+
+
+    public PinPostResult getResult() {
         return result;
     }
 
     @SerializedName("result")
-    private ArrayList<PinInfo> result;
+    private PinPostResult result;
 
     @SerializedName("code")
     private int code;

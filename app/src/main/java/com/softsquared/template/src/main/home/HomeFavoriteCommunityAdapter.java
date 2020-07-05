@@ -18,10 +18,16 @@ public class HomeFavoriteCommunityAdapter extends RecyclerView.Adapter<HomeFavor
 
     private ArrayList<FavoriteCommunityInfo> communityResponseArrayList = new ArrayList<>();
 
+    private HomeFragment homeFragment;
+
+    public HomeFavoriteCommunityAdapter(HomeFragment homeFragment) {
+        this.homeFragment = homeFragment;
+    }
+
     @NonNull
     @Override
     public CommuViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_favorite_community_listview, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_favorite_community, parent, false);
         return new HomeFavoriteCommunityAdapter.CommuViewHolder(view);
     }
 

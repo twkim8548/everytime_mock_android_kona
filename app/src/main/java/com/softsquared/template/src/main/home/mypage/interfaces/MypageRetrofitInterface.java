@@ -12,6 +12,6 @@ public interface MypageRetrofitInterface {
     @GET("/user")
     @Headers("Content-Type: application/json")
     Call<MypageResponse> getMypage(
-            @Header("x-access-token") String accessToken);
+    );
 
 }

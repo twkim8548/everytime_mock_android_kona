@@ -30,13 +30,13 @@ public class MypageService {
     void getMypage()
     {
         MypageRetrofitInterface mypageRetrofitInterface = getRetrofit().create(MypageRetrofitInterface.class);
-        mypageRetrofitInterface.getMypage(X_ACCESS_TOKEN).enqueue(new Callback<MypageResponse>() {
+        mypageRetrofitInterface.getMypage().enqueue(new Callback<MypageResponse>() {
             @Override
             public void onResponse(Call<MypageResponse> call, Response<MypageResponse> response) {
                 MypageResponse mypageResponse = response.body();
                 if(mypageResponse == null)
                 {
-                    Log.e(TAG, "LoginResponse is null");
+                    Log.e(TAG, "MypageResponse is null");
                     mypageActivityView.onFailureGetMypage();
                 }
                 else if(!mypageResponse.getIsSuccess())
@@ -49,7 +49,7 @@ public class MypageService {
                 Log.e("코드", "" + mypageResponse.getCode());
                 Log.e("메시지", "" + mypageResponse.getMessage());
 
-                mypageActivityView.onSuccessGetMypage(mypageResponse.getResult());
+                mypageActivityView.onSuccessGetMypage(mypageResponse.getResult().get(0));
             }
 
             @Override

@@ -9,4 +9,5 @@
     <color name="idpw_gray">#a0a0a0</color>
     <color name="border_gray">#ECECEC</color>
     <color name="dark_gray">#6c6c6c</color>
+    <color name="colorLightGray">#DBDBDB</color>
 </resources>

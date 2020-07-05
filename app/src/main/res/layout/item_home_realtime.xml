@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/home_realtime_img"
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/mypage_myprofile_img"/>
+
+    <TextView
+        android:id="@+id/home_realtime_writer_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/home_realtime_img"
+        app:layout_constraintTop_toTopOf="@id/home_realtime_img"
+        app:layout_constraintBottom_toBottomOf="@id/home_realtime_img"
+        android:layout_marginBottom="5dp"
+        android:textColor="#1c1c1c"
+        android:text="익명"/>
+    <TextView
+        android:id="@+id/home_realtime_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/home_realtime_img"
+        app:layout_constraintStart_toStartOf="@id/home_realtime_img"
+        android:layout_marginTop="5dp"
+        android:textColor="#000000"
+        android:text="실시간 인기 글 내용"/>
+    <TextView
+        android:id="@+id/home_realtime_content_community"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/home_realtime_content_tv"
+        app:layout_constraintStart_toStartOf="@id/home_realtime_img"
+        android:layout_marginTop="5dp"
+        android:textSize="10sp"
+        android:text="게시판 이름"/>
+    <TextView
+        android:id="@+id/home_realtime_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/home_realtime_img"
+        app:layout_constraintBottom_toBottomOf="@id/home_realtime_img"
+        android:text="07/04 12:04"/>
+
+    <TextView
+        android:id="@+id/home_realtime_comment_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="22"/>
+    <ImageView
+        android:id="@+id/home_realtime_comment_img"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toStartOf="@id/home_realtime_comment_tv"
+        app:layout_constraintTop_toTopOf="@id/home_realtime_comment_tv"
+        app:layout_constraintBottom_toBottomOf="@id/home_realtime_comment_tv"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/home_hot_comment"/>
+    <TextView
+        android:id="@+id/home_realtime_good_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/home_realtime_comment_img"
+        app:layout_constraintTop_toTopOf="@id/home_realtime_comment_tv"
+        app:layout_constraintBottom_toBottomOf="@id/home_realtime_comment_tv"
+        android:text="43"
+        android:layout_marginEnd="8dp"/>
+    <ImageView
+        android:id="@+id/home_realtime_good_img"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toStartOf="@id/home_realtime_good_tv"
+        app:layout_constraintTop_toTopOf="@id/home_realtime_comment_tv"
+        app:layout_constraintBottom_toBottomOf="@id/home_realtime_comment_tv"
+        android:src="@drawable/home_hot_good"
+        android:layout_marginEnd="5dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

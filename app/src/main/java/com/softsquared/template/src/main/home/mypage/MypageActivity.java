@@ -28,11 +28,15 @@ public class MypageActivity extends BaseActivity implements MypageActivityView {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mypage_layout);
+
+
         Log.e("jwt 확인", "LoginActivity::onSuccessLogin() jwt: " + sSharedPreferences.getString(X_ACCESS_TOKEN, ""));
         Intent intent = getIntent();
         mypageService = new MypageService(this);
         setView();
         mypageService.getMypage();
+
+
     }
 
     private void setView()
@@ -47,6 +51,7 @@ public class MypageActivity extends BaseActivity implements MypageActivityView {
 
     @Override
     public void onSuccessGetMypage(MypageInfo mypageInfo) {
+
        profileName.setText(mypageInfo.getUserID());
        profileNickname.setText(mypageInfo.getUserNickname());
        profileUnivName.setText(mypageInfo.getUnivName());
