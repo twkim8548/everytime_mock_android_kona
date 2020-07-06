@@ -14,7 +14,6 @@ import com.softsquared.template.src.main.community.models.PinInfo;
 import com.softsquared.template.src.main.notice.NoticeActivity;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -88,8 +87,11 @@ public class CommunityPinAdapter extends RecyclerView.Adapter<CommunityPinAdapte
                 @Override
                 public void onClick(View v) {
                     Intent intent  = new Intent(itemView.getContext(), NoticeActivity.class);
+
                     intent.putExtra("noticeIdx", pinInfo.getNoticeIdx());
+
                     Log.e("noticeIdx", "" +pinInfo.getNoticeIdx());
+
                     itemView.getContext().startActivity(intent);
                 }
             });

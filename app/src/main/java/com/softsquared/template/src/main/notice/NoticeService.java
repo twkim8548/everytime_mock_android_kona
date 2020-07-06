@@ -6,6 +6,8 @@ import com.softsquared.template.src.main.community.models.PinBody;
 import com.softsquared.template.src.main.notice.interfaces.NoticeActivityView;
 import com.softsquared.template.src.main.notice.interfaces.NoticeRetrofitInterface;
 import com.softsquared.template.src.main.notice.models.NoticeResponse;
+import com.softsquared.template.src.main.noticePost.interfaces.PostRetrofitInterface;
+import com.softsquared.template.src.main.noticePost.models.NoticeDeleteResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -58,4 +60,5 @@ public class NoticeService {
         });
 
     }
+//
 }

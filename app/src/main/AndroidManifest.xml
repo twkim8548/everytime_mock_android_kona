@@ -31,6 +31,7 @@
         <activity android:name=".src.main.home.mypage.MypageActivity"/>
         <activity android:name=".src.main.notice.NoticeActivity"/>
         <activity android:name=".src.main.noticePost.NoticePostActivity"/>
+        <activity android:name=".src.main.notice.NoticePostWriteActivity"/>
     </application>
 
 </manifest>

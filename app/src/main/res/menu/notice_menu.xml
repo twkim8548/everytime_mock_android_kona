@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/notice_option_write"
+        android:title="글 쓰기"/>
+    <item
+        android:id="@+id/notice_option_delete"
+        android:title="즐겨찾기에서 삭제" />
+
+</menu>

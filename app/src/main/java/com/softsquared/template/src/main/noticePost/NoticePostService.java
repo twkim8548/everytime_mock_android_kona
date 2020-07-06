@@ -5,6 +5,7 @@ import android.util.Log;
 import com.softsquared.template.src.main.notice.models.NoticeResponse;
 import com.softsquared.template.src.main.noticePost.interfaces.PostActivityView;
 import com.softsquared.template.src.main.noticePost.interfaces.PostRetrofitInterface;
+import com.softsquared.template.src.main.noticePost.models.NoticeDeleteResponse;
 import com.softsquared.template.src.main.noticePost.models.NoticePostResponse;
 
 import retrofit2.Call;
@@ -56,6 +57,35 @@ public class NoticePostService {
             }
         });
 
+    }
+
+    public void deleteNoticePost(int contentIdx) {
+        PostRetrofitInterface postRetrofitInterface = getRetrofit().create(PostRetrofitInterface.class);
+        postRetrofitInterface.deleteNotice(contentIdx).enqueue(new Callback<NoticeDeleteResponse>() {
+            @Override
+            public void onResponse(Call<NoticeDeleteResponse> call, Response<NoticeDeleteResponse> response) {
+                NoticeDeleteResponse noticeDeleteResponse = response.body();
+                if (noticeDeleteResponse == null) {
+                    Log.e(TAG, "LoginResponse is null");
+                    postActivityView.onFailureDeletePost();
+                } else if (!noticeDeleteResponse.getIsSuccess()) {
+                    Log.e(TAG, "" + noticeDeleteResponse.getCode());
+                    Log.e(TAG, "" + noticeDeleteResponse.getMessage());
+                    postActivityView.onFailureDeletePost();
+                }
+                Log.e("게시판 항목 GET", "Notice Get Success!!!!!");
+                Log.e("코드", "" + noticeDeleteResponse.getCode());
+                Log.e("메시지", "" + noticeDeleteResponse.getMessage());
+                postActivityView.onSuccessDeletePost(noticeDeleteResponse.getResult());
+            }
+
+            @Override
+            public void onFailure(Call<NoticeDeleteResponse> call, Throwable t) {
+                Log.e("Failure get notice", "NoticeResponse::getNotice: " + t);
+                postActivityView.onFailureDeletePost();
+
+            }
+        });
     }
 
 }

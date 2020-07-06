@@ -1,23 +1,29 @@
 package com.softsquared.template.src.main.noticePost;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.softsquared.template.R;
 import com.softsquared.template.src.BaseActivity;
+import com.softsquared.template.src.main.notice.NoticeActivity;
+import com.softsquared.template.src.main.notice.NoticePostWriteActivity;
+import com.softsquared.template.src.main.notice.models.NoticeInfo;
+import com.softsquared.template.src.main.notice.models.NoticeResponse;
 import com.softsquared.template.src.main.noticePost.interfaces.PostActivityView;
+import com.softsquared.template.src.main.noticePost.models.NoticeDeleteInfo;
 import com.softsquared.template.src.main.noticePost.models.NoticePostInfo;
-import com.softsquared.template.src.main.noticePost.models.NoticePostResponse;
+import com.softsquared.template.src.main.notice.models.NoticePostWriteInfo;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -25,6 +31,8 @@ public class NoticePostActivity extends BaseActivity implements PostActivityView
 
     private NoticePostService noticePostService;
     private GridLayoutManager gridLayoutManager;
+    private NoticeActivity noticeActivity;
+    private NoticeResponse noticeResponse;
     private int contentIdx = 0;
 
     private ImageView noticePostProfile;
@@ -61,21 +69,58 @@ public class NoticePostActivity extends BaseActivity implements PostActivityView
         noticePostComment = findViewById(R.id.notice_post_comment_tv);
         noticePostStar = findViewById(R.id.notice_post_star_tv);
         noticePostOption = findViewById(R.id.notice_post_option);
+        noticePostOption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(getApplicationContext(), v);
+                getMenuInflater().inflate(R.menu.notice_post_menu, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch(item.getItemId())
+                        {
+                            case R.id.notice_post_option_revise:
+                                break;
+                            case R.id.notice_post_option_delete:
+                                deleteNotice();
+                                Intent intent = new Intent(NoticePostActivity.this, NoticeActivity.class);
+                                startActivity(intent);
+                                finish();
+                                break;
+
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
 
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.notice_post_menu, menu);
-        return true;
+        public void deleteNotice()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("삭제하시겠습니까?");
+        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                noticePostService.deleteNoticePost(contentIdx);
+                Toast.makeText(NoticePostActivity.this, "삭제완료", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//
-//    }
+
+
 
     @Override
     public void onSuccessGetPost(NoticePostInfo noticePostInfo) {
@@ -93,4 +138,22 @@ public class NoticePostActivity extends BaseActivity implements PostActivityView
     public void onFailureGetPost() {
 
     }
+
+    @Override
+    public void onSuccessDeletePost(NoticeDeleteInfo noticeDeleteInfo) {
+        noticeActivity.noticeAdapter.clear();
+        for(NoticeInfo noticeInfo : noticeResponse.getResult())
+        {
+            noticeActivity.noticeAdapter.add(noticeInfo);
+        }
+        noticeActivity.noticeAdapter.notifyDataSetChanged();
+
+    }
+
+    @Override
+    public void onFailureDeletePost() {
+
+    }
+
+
 }
