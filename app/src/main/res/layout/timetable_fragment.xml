@@ -110,7 +110,7 @@
             <TableLayout
                 android:id="@+id/timetable_gridlayout"
                 android:layout_width="match_parent"
-                android:layout_height="600dp"
+                android:layout_height="500dp"
                 android:orientation="vertical"
                 android:background="@drawable/border"
                 android:layout_margin="10dp">
@@ -734,6 +734,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/timetable_grade_calculator_tv"
                     android:text="평균 학점"
+                    android:textColor="@color/colorBlack"
                     android:textStyle="bold"
                     android:layout_marginStart="20dp"
                     android:textSize="16sp"/>
@@ -752,13 +753,83 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toEndOf="@id/grade_average_mine_tv"
                     app:layout_constraintBottom_toBottomOf="@id/grade_average_tv"
-                    android:stateListAnimator="5dp"
-                    android:text="/ 4.5"/>
+                    android:text=" / 4.5"/>
+
+                <TextView
+                    android:id="@+id/grade_get_average_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/grade_average_total_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/timetable_grade_calculator_tv"
+                    android:text="취득 학점"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:layout_marginStart="30dp"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/grade_get_average_mine_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/grade_get_average_tv"
+                    app:layout_constraintBottom_toBottomOf="@id/grade_get_average_tv"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/bottomview_select"
+                    android:text="0"/>
+                <TextView
+                    android:id="@+id/grade_get_average_total_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/grade_get_average_mine_tv"
+                    app:layout_constraintBottom_toBottomOf="@id/grade_get_average_tv"
+                    android:text=" / 150"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/timetable_friend_const"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/border">
+                <TextView
+                    android:id="@+id/timetable_friend_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="친구 시간표"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"/>
+                <FrameLayout
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/timetable_friend_tv"
+                    app:layout_constraintBottom_toBottomOf="@id/timetable_friend_tv">
+                    <ImageView
+                        android:id="@+id/timetable_friend_add_btn"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/timetable_add_btn" />
+                </FrameLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/timetable_friend_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintTop_toBottomOf="@id/timetable_friend_tv"
+                    app:layout_constraintStart_toStartOf="@id/timetable_friend_tv"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
 
-
-            
-            
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

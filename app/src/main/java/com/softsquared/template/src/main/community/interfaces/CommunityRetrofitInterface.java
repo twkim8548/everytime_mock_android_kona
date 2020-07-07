@@ -20,7 +20,7 @@ public interface CommunityRetrofitInterface {
     @Headers("Content-Type: application/json")
     Call<PinResponse> getPinCommunity();
 
-    @POST("/myNotice")
+    @POST("/my-notice")
     @Headers("Content-Type: application/json")
     Call<PinPostResponse> postPin(
             @Body PinBody pinBody);

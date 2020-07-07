@@ -19,6 +19,8 @@ import com.softsquared.template.src.main.home.models.HotContentInfo;
 import com.softsquared.template.src.main.home.models.HotContentResponse;
 import com.softsquared.template.src.main.home.models.RealtimeInfo;
 import com.softsquared.template.src.main.home.models.RealtimeResponse;
+import com.softsquared.template.src.main.home.models.ReviewInfo;
+import com.softsquared.template.src.main.home.models.ReviewResponse;
 import com.softsquared.template.src.main.home.mypage.MypageActivity;
 
 import java.util.ArrayList;
@@ -39,6 +41,7 @@ public class HomeFragment extends Fragment implements HomeActivityView {
     private HomeFavoriteCommunityAdapter homeFavoriteCommunityAdapter;
     private HomeHotContentAdapter homeHotContentAdapter;
     private HomeRealtimeAdapter homeRealtimeAdapter;
+    private HomeReviewAdapter homeReviewAdapter;
     private FavoriteCommunityResponse favoriteCommunityResponse;
     private FavoriteCommunityInfo favoriteCommunityInfo;
     private HomeService homeService;
@@ -68,6 +71,7 @@ public class HomeFragment extends Fragment implements HomeActivityView {
         setRealtime();
         setHotContent();
         setView();
+        setReview();
         onClick();
 
         return viewGroup;
@@ -131,6 +135,17 @@ public class HomeFragment extends Fragment implements HomeActivityView {
         homeService.getRealtime();
     }
 
+    private void setReview()
+    {
+        int column = 1;
+        homeReviewAdapter = new HomeReviewAdapter(this);
+        RecyclerView homeReviewRecyclerview = viewGroup.findViewById(R.id.home_middle_class_review_recyclerview);
+        gridLayoutManager = new GridLayoutManager(getContext(), column);
+        homeReviewRecyclerview.setLayoutManager(gridLayoutManager);
+        homeReviewRecyclerview.setAdapter(homeReviewAdapter);
+        homeService.getReview();
+    }
+
     @Override
     public void onSuccessGetFavoriteCommunity(FavoriteCommunityResponse favoriteCommunityResponse) {
         homeFavoriteCommunityAdapter.clear();
@@ -178,6 +193,22 @@ public class HomeFragment extends Fragment implements HomeActivityView {
 
     @Override
     public void onFailureGetPopularContent() {
+
+    }
+
+    @Override
+    public void onSuccessGetReview(ReviewResponse reviewResponse) {
+        homeReviewAdapter.clear();
+        for(ReviewInfo reviewInfo : reviewResponse.getResult())
+        {
+            homeReviewAdapter.add(reviewInfo);
+        }
+        homeReviewAdapter.notifyDataSetChanged();
+
+    }
+
+    @Override
+    public void onFailureGetReview() {
 
     }
 }

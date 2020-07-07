@@ -9,6 +9,7 @@ import com.softsquared.template.src.main.home.interfaces.HomeRetrofitInterface;
 import com.softsquared.template.src.main.home.models.FavoriteCommunityResponse;
 import com.softsquared.template.src.main.home.models.HotContentResponse;
 import com.softsquared.template.src.main.home.models.RealtimeResponse;
+import com.softsquared.template.src.main.home.models.ReviewResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -122,6 +123,38 @@ public class HomeService {
 
             @Override
             public void onFailure(Call<RealtimeResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    void getReview()
+    {
+        HomeRetrofitInterface homeRetrofitInterface = getRetrofit().create(HomeRetrofitInterface.class);
+        homeRetrofitInterface.getReview().enqueue(new Callback<ReviewResponse>() {
+            @Override
+            public void onResponse(Call<ReviewResponse> call, Response<ReviewResponse> response) {
+                ReviewResponse reviewResponse = response.body();
+                if(reviewResponse == null)
+                {
+                    Log.e(TAG, "LoginResponse is null");
+                    homeActivityView.onFailureGetReview();
+                }
+                else if(!reviewResponse.getIsSuccess())
+                {
+                    Log.e(TAG, "" + reviewResponse.getCode());
+                    Log.e(TAG, "" + reviewResponse.getMessage());
+                    homeActivityView.onFailureGetReview();
+                }
+                Log.e("강의평 GET", "Review Get Success!!!!!");
+                Log.e("코드", "" + reviewResponse.getCode());
+                Log.e("메시지", "" + reviewResponse.getMessage());
+                homeActivityView.onSuccessGetReview(reviewResponse);
+
+            }
+
+            @Override
+            public void onFailure(Call<ReviewResponse> call, Throwable t) {
 
             }
         });

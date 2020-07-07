@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingTop="10dp"
+    android:paddingEnd="10dp"
+    android:paddingStart="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/myclass_class_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="강의 이름"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+    <TextView
+        android:id="@+id/myclass_professor_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/myclass_class_name_tv"
+        android:text="교수이름"
+        android:textSize="14sp"
+        android:layout_marginStart="10dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/myclass_judge_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/myclass_class_name_tv"
+        app:layout_constraintBottom_toBottomOf="@id/myclass_class_name_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:riv_corner_radius="17dp"
+            android:src="@drawable/login_rectangel"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/notice_post_write_complete_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="평가하기"
+            android:layout_marginStart="1dp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/myclass_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myclass_judge_btn"
+        android:background="@color/colorLightGray"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

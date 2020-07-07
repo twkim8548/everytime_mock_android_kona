@@ -32,6 +32,7 @@
         <activity android:name=".src.main.notice.NoticeActivity"/>
         <activity android:name=".src.main.noticePost.NoticePostActivity"/>
         <activity android:name=".src.main.notice.NoticePostWriteActivity"/>
+        <activity android:name=".src.main.timetable.ClassActivity"/>
     </application>
 
 </manifest>
