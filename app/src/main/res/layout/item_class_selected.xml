@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/selected_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="#fdfaf3"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/class_select_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="수업 이름"
+        android:textSize="18sp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/class_select_professor_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/class_select_name_tv"
+        app:layout_constraintStart_toStartOf="@id/class_select_name_tv"
+        android:text="교수 이름"
+        android:textColor="@color/colorBlack"
+        android:textSize="17sp"/>
+    <TextView
+        android:id="@+id/class_select_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/class_select_professor_tv"
+        app:layout_constraintStart_toStartOf="@id/class_select_name_tv"
+        android:text="월1, 월2"/>
+    <TextView
+        android:id="@+id/class_select_location_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/class_select_time_tv"
+        app:layout_constraintStart_toStartOf="@id/class_select_name_tv"
+        android:text="수업 장소"/>
+    <TextView
+        android:id="@+id/class_select_grade_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/class_select_name_tv"
+        app:layout_constraintTop_toBottomOf="@id/class_select_location_tv"
+        android:text="학년"/>
+    <TextView
+        android:id="@+id/class_select_type_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/class_select_grade_tv"
+        app:layout_constraintTop_toTopOf="@id/class_select_grade_tv"
+        app:layout_constraintBottom_toBottomOf="@id/class_select_grade_tv"
+        android:layout_marginStart="10dp"
+        android:text="전선"/>
+    <TextView
+        android:id="@+id/class_select_point_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/class_select_type_tv"
+        app:layout_constraintTop_toTopOf="@id/class_select_type_tv"
+        app:layout_constraintBottom_toBottomOf="@id/class_select_type_tv"
+        android:text="학점"/>
+    <TextView
+        android:id="@+id/class_select_code_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/class_select_point_tv"
+        app:layout_constraintTop_toTopOf="@id/class_select_type_tv"
+        app:layout_constraintBottom_toBottomOf="@id/class_select_type_tv"
+        android:text="1000"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/class_select_add_btn"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/class_select_grade_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="10dp">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:riv_corner_radius="17dp"
+            android:src="@drawable/login_rectangel"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/class_select_add_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시간표에 추가"
+            android:layout_marginStart="1dp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/class_select_go_to_review_btn"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/class_select_add_btn"
+        app:layout_constraintBottom_toBottomOf="@id/class_select_add_btn"
+        app:layout_constraintStart_toEndOf="@id/class_select_add_btn"
+        android:layout_marginStart="15dp"
+        android:padding="6dp"
+        android:background="@drawable/class_book_btn_border">
+        <TextView
+            android:id="@+id/class_select_go_to_review_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="강의평"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/class_select_star_img"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:src="@drawable/class_select_star_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/class_select_kart_tv_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/class_select_star_img"
+        app:layout_constraintEnd_toEndOf="@id/class_select_star_img"
+        android:text="00"/>
+    <TextView
+        android:id="@+id/class_select_kart_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/class_select_star_img"
+        app:layout_constraintEnd_toStartOf="@id/class_select_kart_tv_num"
+        android:layout_marginEnd="3dp"
+        android:text="담은"/>
+    <TextView
+        android:id="@+id/class_select_people_tv_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/class_select_kart_tv_num"
+        app:layout_constraintEnd_toEndOf="@id/class_select_kart_tv_num"
+        android:text="00"/>
+    <TextView
+        android:id="@+id/class_select_people_num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/class_select_kart_tv_num"
+        app:layout_constraintEnd_toStartOf="@id/class_select_people_tv_num"
+        android:layout_marginEnd="3dp"
+        android:text="정원"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.softsquared.template.R;
+import com.softsquared.template.src.main.classReview.ClassEvalActivity;
 import com.softsquared.template.src.main.community.entire.ClassReviewActivity;
 import com.softsquared.template.src.main.home.models.RealtimeInfo;
 import com.softsquared.template.src.main.home.models.ReviewInfo;
@@ -70,7 +71,7 @@ public class HomeReviewAdapter extends RecyclerView.Adapter<HomeReviewAdapter.Re
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent  = new Intent(itemView.getContext(), ClassReviewActivity.class);
+                    Intent intent  = new Intent(itemView.getContext(), ClassEvalActivity.class);
                     intent.putExtra("classCommentIdx", reviewInfo.getClassCommentIdx());
                     Log.e("classCommentIdx", "" +reviewInfo.getClassCommentIdx());
                     itemView.getContext().startActivity(intent);

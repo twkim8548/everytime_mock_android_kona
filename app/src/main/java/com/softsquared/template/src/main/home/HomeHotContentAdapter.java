@@ -28,16 +28,19 @@ public class HomeHotContentAdapter extends RecyclerView.Adapter<HomeHotContentAd
     @Override
     public HotViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_hot, parent, false);
+
         return new HomeHotContentAdapter.HotViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull HotViewHolder holder, int position) {
         holder.setting(hotContentInfoArrayList.get(position));
+
     }
 
     @Override
     public int getItemCount() { return hotContentInfoArrayList.size(); }
+
 
     public void add(HotContentInfo hotContentInfo) {hotContentInfoArrayList.add(hotContentInfo);}
 

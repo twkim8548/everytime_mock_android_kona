@@ -1,6 +1,7 @@
 package com.softsquared.template.src.main.community.entire;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import java.util.Comparator;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,6 +43,7 @@ public class EntireFragment extends Fragment implements CommunityActivityView {
     private PinInfo pinInfo;
     private CommunityPinAdapter.PinViewholder pinViewholder;
     private PinPostResult pinPostResult;
+    private ConstraintLayout entireClassReviewConst;
 
     private ImageView pinImg;
 
@@ -57,8 +60,22 @@ public class EntireFragment extends Fragment implements CommunityActivityView {
         viewGroup =(ViewGroup) inflater.inflate(R.layout.item_community_entire, container, false);
         communityService = new CommunityService(this);
 
+        setView();
         setPin();
         return  viewGroup;
+    }
+
+    public void setView()
+    {
+        entireClassReviewConst = viewGroup.findViewById(R.id.community_class_review_const);
+        entireClassReviewConst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ClassReviewActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void setPin()

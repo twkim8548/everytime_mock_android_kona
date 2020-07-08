@@ -101,7 +101,6 @@ public class HomeFragment extends Fragment implements HomeActivityView {
 
 
 
-
     private void setFavoriteCommunity()
     {
         int column = 1;
@@ -112,6 +111,8 @@ public class HomeFragment extends Fragment implements HomeActivityView {
         favoriteCommunityRecyclerView.setAdapter(homeFavoriteCommunityAdapter);
         homeService.getFavoriteCommunityList();
     }
+
+
 
     private void setHotContent()
     {

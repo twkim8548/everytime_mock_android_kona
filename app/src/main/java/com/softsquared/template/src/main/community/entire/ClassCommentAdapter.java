@@ -1,11 +1,14 @@
 package com.softsquared.template.src.main.community.entire;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.softsquared.template.R;
+import com.softsquared.template.src.main.classReview.ClassEvalActivity;
 import com.softsquared.template.src.main.community.CommunityPinAdapter;
 import com.softsquared.template.src.main.community.entire.models.ClassCommentInfo;
 import com.softsquared.template.src.main.community.models.PinInfo;
@@ -64,12 +67,22 @@ public class ClassCommentAdapter extends RecyclerView.Adapter<ClassCommentAdapte
             commentInf = itemView.findViewById(R.id.class_review_comment_info_tv);
         }
 
-        void bind(ClassCommentInfo classCommentInfo)
+        void bind(final ClassCommentInfo classCommentInfo)
         {
             commentName.setText(classCommentInfo.getClassName());
             commentProfessor.setText(classCommentInfo.getProfessor());
             commentWriter.setText(classCommentInfo.getClassStudent());
             commentInf.setText(classCommentInfo.getClassCommentInf());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent  = new Intent(itemView.getContext(), ClassEvalActivity.class);
+                    intent.putExtra("classIdx", classCommentInfo.getClassIdx());
+                    Log.e("comment classIdx", "" +classCommentInfo.getClassIdx());
+                    itemView.getContext().startActivity(intent);
+
+                }
+            });
         }
     }
 }

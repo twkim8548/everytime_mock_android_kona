@@ -1,23 +1,12 @@
-package com.softsquared.template.src.main.community.entire.models;
+package com.softsquared.template.src.main.classReview.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ClassCommentInfo {
-
+public class ClassReviewCommentInfo {
 
 
     @SerializedName("classCommentIdx")
     private int classCommentIdx;
-
-    @SerializedName("classIdx")
-    private int classIdx;
-
-
-    @SerializedName("className")
-    private String className;
-
-    @SerializedName("professor")
-    private String professor;
 
     @SerializedName("classCommentInf")
     private String classCommentInf;
@@ -25,24 +14,14 @@ public class ClassCommentInfo {
     @SerializedName("classStudent")
     private String classStudent;
 
-    @SerializedName("classStart")
-    private double classStart;
+    @SerializedName("classStar")
+    private int classStar;
 
     @SerializedName("classCommentLike")
     private int classCommentLike;
 
     public int getClassCommentIdx() {
         return classCommentIdx;
-    }
-
-    public int getClassIdx() { return classIdx; }
-
-    public String getClassName() {
-        return className;
-    }
-
-    public String getProfessor() {
-        return professor;
     }
 
     public String getClassCommentInf() {
@@ -53,8 +32,8 @@ public class ClassCommentInfo {
         return classStudent;
     }
 
-    public double getClassStart() {
-        return classStart;
+    public int getClassStar() {
+        return classStar;
     }
 
     public int getClassCommentLike() {

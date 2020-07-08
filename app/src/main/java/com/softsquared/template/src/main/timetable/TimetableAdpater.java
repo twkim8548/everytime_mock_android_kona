@@ -3,6 +3,7 @@ package com.softsquared.template.src.main.timetable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.softsquared.template.R;
@@ -14,6 +15,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class TimetableAdpater extends RecyclerView.Adapter<TimetableAdpater.TimetableViewholder> {
@@ -22,6 +24,7 @@ public class TimetableAdpater extends RecyclerView.Adapter<TimetableAdpater.Time
 
     private TimetableFragment timetableFragment;
     private ClassActivity classActivity;
+    private TimetableService timetableService;
 
     public TimetableAdpater(ClassActivity classActivity) {
         this.classActivity = classActivity;
@@ -30,13 +33,14 @@ public class TimetableAdpater extends RecyclerView.Adapter<TimetableAdpater.Time
     @NonNull
     @Override
     public TimetableViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_class_select, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_class_selected, parent, false);
         return new TimetableAdpater.TimetableViewholder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TimetableViewholder holder, int position) {
+    public void onBindViewHolder(@NonNull final TimetableViewholder holder, int position) {
         holder.bind(timetableInfoArrayList.get(position));
+
     }
 
     @Override
@@ -58,6 +62,8 @@ public class TimetableAdpater extends RecyclerView.Adapter<TimetableAdpater.Time
         private TextView classCodeTv;
         private TextView classTimetablePeopleTv;
         private TextView classPeopleTv;
+         ConstraintLayout classAddBtn;
+        ConstraintLayout classGoReviewBtn;
 
         public TimetableViewholder(@NonNull View itemView) {
             super(itemView);
@@ -69,6 +75,8 @@ public class TimetableAdpater extends RecyclerView.Adapter<TimetableAdpater.Time
             classCodeTv = itemView.findViewById(R.id.class_select_code_tv);
             classTimetablePeopleTv = itemView.findViewById(R.id.class_select_kart_tv_num);
             classPeopleTv = itemView.findViewById(R.id.class_select_people_tv_num);
+            classAddBtn = itemView.findViewById(R.id.class_select_add_btn);
+            classGoReviewBtn = itemView.findViewById(R.id.class_select_go_to_review_btn);
         }
 
         void bind(TimetableInfo timetableInfo)
@@ -81,6 +89,7 @@ public class TimetableAdpater extends RecyclerView.Adapter<TimetableAdpater.Time
             classCodeTv.setText(String.valueOf(timetableInfo.getClassCode()));
             classTimetablePeopleTv.setText(String.valueOf(timetableInfo.getTimeTablePeople()));
             classPeopleTv.setText(String.valueOf(timetableInfo.getClassPeople()));
+
         }
     }
 }

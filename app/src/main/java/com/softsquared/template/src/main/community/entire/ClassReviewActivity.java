@@ -39,7 +39,7 @@ public class ClassReviewActivity extends BaseActivity implements ClassReviewActi
     {
         int column = 1;
         myClassReviewAdapter = new MyClassReviewAdapter(this);
-        RecyclerView myClassRecyclerview = findViewById(R.id.content_recyclerview);
+        RecyclerView myClassRecyclerview = findViewById(R.id.class_review_myclass_recyclerview);
         gridLayoutManager = new GridLayoutManager(this, column);
         myClassRecyclerview.setLayoutManager(gridLayoutManager);
         myClassRecyclerview.setAdapter(myClassReviewAdapter);
@@ -52,7 +52,7 @@ public class ClassReviewActivity extends BaseActivity implements ClassReviewActi
     {
         int column = 1;
         classCommentAdapter = new ClassCommentAdapter(this);
-        RecyclerView classCommentRecyclerview = findViewById(R.id.content_recyclerview);
+        RecyclerView classCommentRecyclerview = findViewById(R.id.class_review_myclass_recent_recyclerview);
         gridLayoutManager = new GridLayoutManager(this, column);
         classCommentRecyclerview.setLayoutManager(gridLayoutManager);
         classCommentRecyclerview.setAdapter(classCommentAdapter);
