@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -78,10 +80,18 @@ public class MypageActivity extends BaseActivity implements MypageActivityView {
     public void patchNicknameChange()
     {
         final EditText nickEditText = new EditText(this);
+        nickEditText.setBackgroundColor(000000);
+
+        FrameLayout container = new FrameLayout(getApplicationContext());
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.leftMargin = getResources().getDimensionPixelSize(R.dimen.dialog_margin);
+        params.rightMargin = getResources().getDimensionPixelSize(R.dimen.dialog_margin);
+        nickEditText.setLayoutParams(params);
+        container.addView(nickEditText);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("닉네임 변경");
-        builder.setView(nickEditText);
+        builder.setView(container);
         builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

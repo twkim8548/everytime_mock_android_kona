@@ -347,7 +347,7 @@
                         android:ems="16"
                         android:textColor="#000000"
                         android:background="@null"
-                        android:text="연도 선택 (학번)" />
+                        android:hint="연도 선택 (학번)" />
                     <ImageView
                         android:id="@+id/sign_up_entrance_year_arrow"
                         android:layout_width="15dp"

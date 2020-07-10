@@ -1,13 +1,17 @@
 package com.softsquared.template.src.main.home;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.softsquared.template.R;
+import com.softsquared.template.src.main.classReview.ClassEvalActivity;
 import com.softsquared.template.src.main.home.models.FavoriteCommunityInfo;
 import com.softsquared.template.src.main.home.models.HotContentInfo;
+import com.softsquared.template.src.main.noticePost.NoticePostActivity;
 
 import java.util.ArrayList;
 
@@ -60,12 +64,21 @@ public class HomeHotContentAdapter extends RecyclerView.Adapter<HomeHotContentAd
             hotContentComment = itemView.findViewById(R.id.home_hot_comment_tv);
         }
 
-        void setting(HotContentInfo hotContentInfo)
+        void setting(final HotContentInfo hotContentInfo)
         {
             hotContentTitle.setText(hotContentInfo.getContentTitle());
             hotContentDate.setText(hotContentInfo.getWriteDay());
             hotContentGood.setText(String.valueOf(hotContentInfo.getCountLike()));
             hotContentComment.setText(String.valueOf(hotContentInfo.getCountComment()));
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent  = new Intent(itemView.getContext(), NoticePostActivity.class);
+                    intent.putExtra("contentIdx", hotContentInfo.getContentIdx());
+                    Log.e("contentIdx", "" +hotContentInfo.getContentIdx());
+                    itemView.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }

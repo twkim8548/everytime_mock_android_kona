@@ -72,8 +72,8 @@ public class HomeReviewAdapter extends RecyclerView.Adapter<HomeReviewAdapter.Re
                 @Override
                 public void onClick(View v) {
                     Intent intent  = new Intent(itemView.getContext(), ClassEvalActivity.class);
-                    intent.putExtra("classCommentIdx", reviewInfo.getClassCommentIdx());
-                    Log.e("classCommentIdx", "" +reviewInfo.getClassCommentIdx());
+                    intent.putExtra("classIdx", reviewInfo.getClassIdx());
+                    Log.e("classIdx", "" +reviewInfo.getClassIdx());
                     itemView.getContext().startActivity(intent);
 
                 }

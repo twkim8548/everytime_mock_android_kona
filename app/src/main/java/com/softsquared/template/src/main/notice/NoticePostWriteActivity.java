@@ -75,6 +75,11 @@ public class NoticePostWriteActivity extends BaseActivity implements NoticeActiv
     }
 
     @Override
+    public void onSuccessGetNoticename(NoticeInfo noticeInfo) {
+
+    }
+
+    @Override
     public void onFailureGetNotice() {
 
     }

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.softsquared.template.R;
 import com.softsquared.template.src.main.MainActivity;
@@ -49,7 +50,7 @@ public class HomeFragment extends Fragment implements HomeActivityView {
     private MainActivity mainActivity;
     private GridLayoutManager gridLayoutManager;
 
-    private FrameLayout mypageFramelayout;
+    private ImageView mypageImageview;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -85,12 +86,12 @@ public class HomeFragment extends Fragment implements HomeActivityView {
 
     private void setView()
     {
-        mypageFramelayout = viewGroup.findViewById(R.id.home_top_mypage_img);
+        mypageImageview = viewGroup.findViewById(R.id.home_top_mypage_img);
     }
 
     private void onClick()
     {
-        mypageFramelayout.setOnClickListener(new View.OnClickListener() {
+        mypageImageview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), MypageActivity.class);

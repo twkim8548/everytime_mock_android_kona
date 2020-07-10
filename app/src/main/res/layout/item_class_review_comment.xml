@@ -13,18 +13,28 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="강의명 :"
+        android:text="강의명"
         android:textColor="@color/colorBlack"
         android:textSize="22sp"
         android:textStyle="bold"/>
     <TextView
+        android:id="@+id/class_review_comment_divide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" : "
+        android:textSize="22sp"
+        app:layout_constraintTop_toTopOf="@id/class_review_comment_classname_tv"
+        app:layout_constraintBottom_toBottomOf="@id/class_review_comment_classname_tv"
+        app:layout_constraintStart_toEndOf="@id/class_review_comment_classname_tv"
+        app:layout_constraintEnd_toStartOf="@id/class_review_comment_professor_tv"/>
+    <TextView
         android:id="@+id/class_review_comment_professor_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/class_review_comment_classname_tv"
+        app:layout_constraintStart_toEndOf="@id/class_review_comment_divide"
         app:layout_constraintTop_toTopOf="@id/class_review_comment_classname_tv"
         app:layout_constraintBottom_toBottomOf="@id/class_review_comment_classname_tv"
-        android:text=" 교수이름"
+        android:text="교수이름"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"/>

@@ -2,16 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:padding="10dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="20dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/class_comment_star_img"
         android:layout_width="100dp"
-        android:layout_height="20dp"
+        android:layout_height="17dp"
+        android:scaleType="fitStart"
         android:src="@drawable/class_select_star_img"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/class_comment_classname_tv"/>
     <TextView
         android:id="@+id/class_comment_classname_tv"
         android:layout_width="wrap_content"
@@ -19,19 +22,27 @@
         app:layout_constraintTop_toBottomOf="@id/class_comment_star_img"
         app:layout_constraintStart_toStartOf="@id/class_comment_star_img"
         android:layout_marginStart="20dp"
-        android:text="강의명 :"
+        android:text="강의명"
         android:textColor="@color/colorBlack"
-        android:textSize="18sp"
         android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/class_review_comment_divide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" : "
+        android:textColor="@color/colorBlack"
+        app:layout_constraintTop_toTopOf="@id/class_comment_classname_tv"
+        app:layout_constraintBottom_toBottomOf="@id/class_comment_classname_tv"
+        app:layout_constraintStart_toEndOf="@id/class_comment_classname_tv"
+        app:layout_constraintEnd_toStartOf="@id/class_comment_professor_tv"/>
     <TextView
         android:id="@+id/class_comment_professor_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/class_comment_classname_tv"
+        app:layout_constraintStart_toEndOf="@id/class_review_comment_divide"
         app:layout_constraintTop_toTopOf="@id/class_comment_classname_tv"
         app:layout_constraintBottom_toBottomOf="@id/class_comment_classname_tv"
         android:text=" 교수이름"
-        android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"/>
     <TextView
@@ -40,6 +51,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/class_comment_classname_tv"
         app:layout_constraintTop_toBottomOf="@id/class_comment_classname_tv"
+        android:textColor="@color/myPageBlack"
         android:text="리뷰내용"/>
 
 

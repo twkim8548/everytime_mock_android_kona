@@ -14,7 +14,7 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 
 public interface HomeRetrofitInterface {
-    @GET("/myNotice")
+    @GET("/my-notice")
     @Headers("Content-Type: application/json")
     Call<FavoriteCommunityResponse> getFavoriteCommunity();
 

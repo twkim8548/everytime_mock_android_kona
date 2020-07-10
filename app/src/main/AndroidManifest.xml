@@ -36,6 +36,7 @@
         <activity android:name=".src.main.classReview.ClassEvalActivity"/>
         <activity android:name=".src.main.community.entire.ClassReviewActivity"/>
         <activity android:name=".src.main.timetable.MyTimetableListActivity"/>
+
     </application>
 
 </manifest>

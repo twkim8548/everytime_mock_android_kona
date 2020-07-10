@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class FavoriteCommunityInfo {
 
+    public int getNoticeIdx() {
+        return noticeIdx;
+    }
 
     public String getNoticeName() {
         return noticeName;
@@ -16,6 +19,9 @@ public class FavoriteCommunityInfo {
     public String getCheckNew() {
         return checkNew;
     }
+
+    @SerializedName("noticeIdx")
+    private int noticeIdx;
 
     @SerializedName("noticeName")
     private String noticeName;

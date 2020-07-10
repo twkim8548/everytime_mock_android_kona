@@ -3,6 +3,9 @@ package com.softsquared.template.src.main.home.models;
 import com.google.gson.annotations.SerializedName;
 
 public class HotContentInfo {
+    public int getContentIdx() {
+        return contentIdx;
+    }
 
     public String getContentTitle() {
         return contentTitle;
@@ -20,6 +23,9 @@ public class HotContentInfo {
         return countComment;
     }
 
+
+    @SerializedName("contentIdx")
+    private int contentIdx;
 
     @SerializedName("contentTitle")
     private String contentTitle;

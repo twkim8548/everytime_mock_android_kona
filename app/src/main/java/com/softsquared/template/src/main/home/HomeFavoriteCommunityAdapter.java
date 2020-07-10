@@ -1,5 +1,7 @@
 package com.softsquared.template.src.main.home;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,8 @@ import android.widget.TextView;
 
 import com.softsquared.template.R;
 import com.softsquared.template.src.main.home.models.FavoriteCommunityInfo;
+import com.softsquared.template.src.main.notice.NoticeActivity;
+import com.softsquared.template.src.main.noticePost.NoticePostActivity;
 
 import java.util.ArrayList;
 
@@ -16,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class HomeFavoriteCommunityAdapter extends RecyclerView.Adapter<HomeFavoriteCommunityAdapter.CommuViewHolder> {
 
+    private String num;
     private ArrayList<FavoriteCommunityInfo> communityResponseArrayList = new ArrayList<>();
 
     private HomeFragment homeFragment;
@@ -57,8 +62,9 @@ public class HomeFavoriteCommunityAdapter extends RecyclerView.Adapter<HomeFavor
             commuRecent = itemView.findViewById(R.id.favorite_community_new);
         }
 
-        void setting(FavoriteCommunityInfo favoriteCommunityInfo)
+        void setting(final FavoriteCommunityInfo favoriteCommunityInfo)
         {
+
             commuName.setText(favoriteCommunityInfo.getNoticeName());
             commuArticle.setText(favoriteCommunityInfo.getContentTitle());
             switch (favoriteCommunityInfo.getCheckNew())
@@ -68,12 +74,22 @@ public class HomeFavoriteCommunityAdapter extends RecyclerView.Adapter<HomeFavor
                     commuRecent.setVisibility(View.VISIBLE);
                     break;
                 }
-                case "x":
+                case "0":
                 {
                     commuRecent.setVisibility(View.INVISIBLE);
                     break;
                 }
             }
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent  = new Intent(itemView.getContext(), NoticeActivity.class);
+                    intent.putExtra("noticeIdx", favoriteCommunityInfo.getNoticeIdx());
+                    Log.e("noticeIdx", "" +favoriteCommunityInfo.getNoticeIdx());
+                    itemView.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }

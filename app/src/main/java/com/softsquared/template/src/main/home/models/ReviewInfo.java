@@ -7,6 +7,10 @@ public class ReviewInfo {
         return classCommentIdx;
     }
 
+    public int getClassIdx() {
+        return classIdx;
+    }
+
     public String getClassName() {
         return className;
     }
@@ -25,6 +29,9 @@ public class ReviewInfo {
 
     @SerializedName("classCommentIdx")
     private int classCommentIdx;
+
+    @SerializedName("classIdx")
+    private int classIdx;
 
     @SerializedName("className")
     private String className;

@@ -2,6 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <TextView
         android:id="@+id/favorite_community_name"
@@ -11,11 +15,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="게시판 이름"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginStart="10dp"
+
         android:textColor="#000000"
-        android:textSize="16sp"/>
+        android:textSize="14sp"/>
     <TextView
         android:id="@+id/favorite_community_article"
         android:layout_width="wrap_content"
@@ -24,12 +26,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/favorite_community_name"
         android:text="게시판 내용"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:layout_marginStart="15dp"/>
     <ImageView
         android:id="@+id/favorite_community_new"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         app:layout_constraintTop_toTopOf="@id/favorite_community_article"
         app:layout_constraintBottom_toBottomOf="@id/favorite_community_article"
         app:layout_constraintEnd_toEndOf="parent"

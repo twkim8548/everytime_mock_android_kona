@@ -49,6 +49,7 @@ public class NoticeService {
                 Log.e("코드", "" + noticeResponse.getCode());
                 Log.e("메시지", "" + noticeResponse.getMessage());
                 noticeActivityView.onSuccessGetNotice(noticeResponse);
+                noticeActivityView.onSuccessGetNoticename(noticeResponse.getResult().get(0));
 
             }
 

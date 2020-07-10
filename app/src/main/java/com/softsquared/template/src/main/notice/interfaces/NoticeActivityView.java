@@ -9,6 +9,9 @@ public interface NoticeActivityView {
 
     void onSuccessGetNotice(NoticeResponse noticeResponse);
 
+    void onSuccessGetNoticename(NoticeInfo noticeInfo);
+
+
     void onFailureGetNotice();
 
     void onSuccessPostWrite(NoticePostWriteInfo noticePostWriteInfo);

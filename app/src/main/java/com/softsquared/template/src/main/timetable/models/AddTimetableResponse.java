@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class AddTimetableResponse {
 
 
-    public Object getResult() {
+    public AddTimetableInfo getResult() {
         return result;
     }
 
@@ -24,7 +24,7 @@ public class AddTimetableResponse {
     }
 
     @SerializedName("result")
-    private Object result;
+    private AddTimetableInfo result;
 
     @SerializedName("code")
     private int code;

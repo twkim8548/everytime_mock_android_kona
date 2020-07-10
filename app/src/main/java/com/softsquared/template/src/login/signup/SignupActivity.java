@@ -83,8 +83,11 @@ public class SignupActivity extends BaseActivity implements SignupActivityView {
 
     public void signUpComplete()
     {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("회원가입이 완료되었습니다.").setMessage("ㅎㅎ");
+        builder.setTitle("회원가입이 완료되었습니다.").setMessage("에브리타임\n" +
+                "2020년 7월 10일\n" +
+                "광고성 정보 수신 동의 완료");
         builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

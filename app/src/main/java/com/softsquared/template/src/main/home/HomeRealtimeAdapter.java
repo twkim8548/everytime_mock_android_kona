@@ -1,8 +1,12 @@
 package com.softsquared.template.src.main.home;
 
+import android.content.Context;
+import android.graphics.Point;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.softsquared.template.R;
@@ -19,6 +23,7 @@ public class HomeRealtimeAdapter extends RecyclerView.Adapter<HomeRealtimeAdapte
     private ArrayList<RealtimeInfo> realtimeInfoArrayList = new ArrayList<>();
 
     private HomeFragment homeFragment;
+    private Context context;
 
     public HomeRealtimeAdapter(HomeFragment homeFragment) {
         this.homeFragment = homeFragment;
@@ -35,6 +40,8 @@ public class HomeRealtimeAdapter extends RecyclerView.Adapter<HomeRealtimeAdapte
     public void onBindViewHolder(@NonNull RealtimeViewholder holder, int position) {
         holder.setting(realtimeInfoArrayList.get(position));
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -72,6 +79,12 @@ public class HomeRealtimeAdapter extends RecyclerView.Adapter<HomeRealtimeAdapte
             homeRealtimeDateTv.setText(realtimeInfo.getWriteDay());
             homeRealtimeCommentTv.setText(String.valueOf(realtimeInfo.getCountComment()));
             homeRealtimeGoodTv.setText(String.valueOf(realtimeInfo.getCountLike()));
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
         }
     }
 }

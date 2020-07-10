@@ -10,6 +10,7 @@ import android.widget.GridLayout;
 import android.widget.TextView;
 
 import com.softsquared.template.R;
+import com.softsquared.template.src.main.MainActivity;
 import com.softsquared.template.src.main.community.CommunityPinAdapter;
 import com.softsquared.template.src.main.community.models.PinInfo;
 import com.softsquared.template.src.main.notice.models.NoticeInfo;
@@ -37,12 +38,16 @@ public class TimetableFragment extends Fragment implements TimetableActivityView
     private ViewGroup viewGroup;
     private ConstraintLayout timetableAddBtn;
     private ConstraintLayout timetableListBtn;
+    private ConstraintLayout classAddBtn;
 
     private TextView monday[] = new TextView[10];
     private TextView tuesday[] = new TextView[10];
     private TextView wednesday[] = new TextView[10];
     private TextView thursday[] = new TextView[10];
     private TextView friday[] = new TextView[10];
+
+    private MainActivity mainActivity;
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -113,6 +118,15 @@ public class TimetableFragment extends Fragment implements TimetableActivityView
         timetableService = new TimetableService(this);
 
         timetableService.getMyTimetable(1);
+//        Intent intent = intent.getIntent();
+//        if(intent == null)
+//            Log.e("intent없음", "NoticeActivity::onCreate() intent is null");
+//        else
+//        {
+//            noticeIdx = intent.getIntExtra("noticeIdx", 0);
+//            Log.e("intent값", "noticeIdx : " + noticeIdx);
+//        }
+
         setView();
 
         return viewGroup;
@@ -140,10 +154,7 @@ public class TimetableFragment extends Fragment implements TimetableActivityView
         });
     }
 
-    public void setTimetable(MyTimetableResponse myTimetableResponse)
-    {
 
-    }
 
 
 

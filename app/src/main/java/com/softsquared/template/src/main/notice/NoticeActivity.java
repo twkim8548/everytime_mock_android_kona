@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 
 import com.softsquared.template.R;
 import com.softsquared.template.src.BaseActivity;
@@ -19,6 +20,7 @@ import com.softsquared.template.src.main.notice.models.NoticePostWriteInfo;
 import com.softsquared.template.src.main.notice.models.NoticeResponse;
 
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +32,7 @@ public class NoticeActivity extends BaseActivity implements NoticeActivityView {
     private GridLayoutManager gridLayoutManager;
     private FrameLayout noticeOptionBtn;
     private int noticeIdx = 0;
+    private TextView noticeName;
 
 
     @Override
@@ -52,6 +55,7 @@ public class NoticeActivity extends BaseActivity implements NoticeActivityView {
 
     private void setView()
     {
+        noticeName = findViewById(R.id.content_name_tv);
         noticeOptionBtn = findViewById(R.id.content_option);
         noticeOptionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +91,9 @@ public class NoticeActivity extends BaseActivity implements NoticeActivityView {
         int column = 1;
         noticeAdapter = new NoticeAdapter(this);
         RecyclerView noticeRecyclerView = findViewById(R.id.content_recyclerview);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL );
+        dividerItemDecoration.setDrawable(this.getResources().getDrawable(R.drawable.recycler_divider));
+        noticeRecyclerView.addItemDecoration(dividerItemDecoration);
         gridLayoutManager = new GridLayoutManager(this, column);
         noticeRecyclerView.setLayoutManager(gridLayoutManager);
         noticeRecyclerView.setAdapter(noticeAdapter);
@@ -109,6 +116,7 @@ public class NoticeActivity extends BaseActivity implements NoticeActivityView {
 
     @Override
     public void onSuccessGetNotice(NoticeResponse noticeResponse) {
+
         noticeAdapter.clear();
         for(NoticeInfo noticeInfo : noticeResponse.getResult())
         {
@@ -116,6 +124,11 @@ public class NoticeActivity extends BaseActivity implements NoticeActivityView {
         }
         noticeAdapter.notifyDataSetChanged();
 
+    }
+
+    @Override
+    public void onSuccessGetNoticename(NoticeInfo noticeInfo) {
+        noticeName.setText(noticeInfo.getNoticeName());
     }
 
     @Override

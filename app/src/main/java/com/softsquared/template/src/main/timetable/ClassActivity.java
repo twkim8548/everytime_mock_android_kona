@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.WindowManager;
 
 import com.softsquared.template.R;
@@ -16,6 +17,7 @@ import com.softsquared.template.src.main.timetable.models.TimetableInfo;
 import com.softsquared.template.src.main.timetable.models.TimetableResponse;
 
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +27,7 @@ public class ClassActivity extends BaseActivity implements TimetableActivityView
     private TimetableAdpater timetableAdpater;
     private RecyclerView timetableRecyclerView;
     private TimetableService timetableService;
+    private ConstraintLayout addClassBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class ClassActivity extends BaseActivity implements TimetableActivityView
 
         setTimetable();
         setTimetableWindow();
+
     }
 
     @Override
@@ -65,6 +69,8 @@ public class ClassActivity extends BaseActivity implements TimetableActivityView
         timetableRecyclerView.setAdapter(timetableAdpater);
         timetableService.getTimetable();
     }
+
+
 
     @Override
     protected void onPause() {
